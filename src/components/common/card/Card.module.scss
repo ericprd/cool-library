@@ -1,0 +1,25 @@
+.container {
+  @apply h-40 w-full shadow-md rounded-md overflow-hidden flex gap-4 col-span-1 bg-white cursor-pointer;
+}
+
+.container_loader {
+  @apply bg-gray-600/40 animate-pulse;
+}
+
+.image_container {
+  @apply h-full min-w-[7rem] relative shadow-md;
+}
+
+.image {
+  @apply h-full w-full object-cover;
+}
+
+.text_container {
+  @apply space-y-1 px-1;
+  & > h1 {
+    @apply text-xl;
+  }
+  & > h3 {
+    @apply text-base;
+  }
+}

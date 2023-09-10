@@ -1,0 +1,11 @@
+.container {
+  @apply flex gap-2 w-full max-w-md mx-auto bg-white px-2 py-1 items-center rounded-xl border border-gray-300;
+}
+
+.input {
+  @apply w-full bg-inherit focus:ring-0 focus:outline-none;
+}
+
+.icon {
+  @apply text-gray-400 flex-none;
+}
