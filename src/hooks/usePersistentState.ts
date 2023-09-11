@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
 export function usePersistentState<T>(init: T, name: string) {
@@ -23,3 +25,18 @@ export function usePersistentState<T>(init: T, name: string) {
 
     return { state, setPersistentValue };
 }
+
+// export function usePersistentState<T>(init: T, key: string) {
+//     const storedValue = global.localStorage.getItem(key);
+//     const initial = storedValue ? JSON.parse(storedValue) : init;
+
+//     const [state, setState] = useState<T>(initial);
+
+//     useEffect(() => {
+//         localStorage?.setItem(key, JSON.stringify(state));
+//     }, [key, state]);
+
+//     return { state, setState };
+// }
+
+// export default usePersistentState;

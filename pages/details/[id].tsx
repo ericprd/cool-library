@@ -3,7 +3,6 @@ import { useFetch } from '@/src/hooks/useFetch';
 import { getFullYear } from '@/src/utils/string-manipulation';
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
-import { ArrowLeft } from 'react-feather';
 
 type VolumeInfoProps = {
     publisher?: string;
@@ -37,7 +36,7 @@ export default function Details() {
             language: volumeInfo.language ?? '',
             pages: volumeInfo.pageCount ?? 0,
             previewLink: volumeInfo.previewLink ?? '',
-            publisher: volumeInfo.authors.join(', ') ?? volumeInfo.publisher ?? '',
+            publisher: volumeInfo.authors?.join(', ') ?? volumeInfo.publisher ?? '',
             thumbnail: volumeInfo.imageLinks?.small ?? volumeInfo.imageLinks?.thumbnail,
             year: getFullYear(volumeInfo.publishedDate) ?? null
         };
@@ -52,14 +51,7 @@ export default function Details() {
 
     return (
         <section className="space-y-2 p-2 pb-4">
-            <button type="button" className="flex gap-1 items-center" onClick={() => router.back()}>
-                <span>
-                    <ArrowLeft size={16} />
-                </span>
-                <span>Back</span>
-            </button>
-
-            <div className="px-4 space-y-4">
+            <div className="px-4 space-y-4 max-w-3xl mx-auto">
                 <h1 className="text-xl font-bold text-center">{refinedData.title}</h1>
                 <p className="text-center text-sm">Author: {refinedData.publisher}</p>
 
@@ -68,7 +60,7 @@ export default function Details() {
                 </div>
                 <p className="text-center">Total Pages: {refinedData.pages} Pages</p>
                 <h3 className="font-semibold text-lg">Desription:</h3>
-                <p dangerouslySetInnerHTML={{ __html: refinedData.description as string}}></p>
+                <p className="text-justify" dangerouslySetInnerHTML={{ __html: refinedData.description as string}}></p>
             </div>
         </section>
     );
