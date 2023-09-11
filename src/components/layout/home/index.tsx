@@ -62,7 +62,12 @@ export default function HomeDisplay() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ListDisplay data={refinedData.items} />
+      <section className="space-y-7">
+        <h1 className="text-center text-3xl">Welcome to the coolest library!</h1>
+        <p className="text-center">Find your favorite books.</p>
+
+        <ListDisplay data={refinedData.items} />
+      </section>
     </div>
   );
 };
