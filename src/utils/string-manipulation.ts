@@ -7,7 +7,8 @@ export function truncateText(str: string, max: number): string {
   }
 }
 
-export function getFullYear(str: string): number | null {
+export function getFullYear(str: string | undefined): number | null {
+  if (!str) return null;
   const fullYear = new Date(str).getFullYear();
 
   const checkNaN = isNaN(fullYear) ? null : fullYear;
