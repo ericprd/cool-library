@@ -37,7 +37,7 @@ export function Card(props: DataProps) {
     <div className={isGrid ? style.container_grid : style.container} onClick={() => router.push(`/details/${data.id}`)}>
       <div className={isGrid ? style.image_container_grid : style.image_container}>
         {data.img_url ? (
-          <Image src={data.img_url} alt={data.title} className={isGrid ? style.image_grid : style.image} fill />
+          <Image src={data.img_url} alt={data.title} className={isGrid ? style.image_grid : style.image} fill loading="lazy" />
         ) : (
           <div className={isGrid ? style.image_grid : style.image} />
         )}
