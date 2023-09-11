@@ -21,14 +21,15 @@ const SORTBY: OptionProps[] = [
 
 const query = ['search', 'search_by', 'page', 'index_items', 'order_by'];
 
+
+const itemsPerPage = 20;
+
 export default function ResultDisplay() {
   const router = useRouter();
   const { search, search_by, page, index_items, order_by } = router.query;
   const {  state: view, setPersistentValue: setView } = usePersistentState<ViewProps>('grid', 'view');
 
   const [sortBy, setSortBy] = useState(order_by);
-
-  const itemsPerPage = 16;
 
   const numberPage = Number(page);
 
@@ -80,8 +81,11 @@ export default function ResultDisplay() {
   return (
     <section className="p-2 space-y-2">
       <div className="flex justify-between items-center px-2 md:px-5">
-        <div className="border border-gray-300 rounded-md max-w-fit">
-          <SelectComponent options={SORTBY} onChange={setSortBy} value={sortBy as string} />
+        <div className="flex items-center gap-3">
+          <label>Sort By:</label>
+          <div className="border border-gray-300 rounded-md max-w-fit">
+            <SelectComponent options={SORTBY} onChange={setSortBy} value={sortBy as string} />
+          </div>
         </div>
 
         <ButtonIcon icon={view === 'grid' ? Grid : List} onClick={() => setView(view === 'grid' ? 'list' : 'grid')}/>
@@ -90,11 +94,13 @@ export default function ResultDisplay() {
       {loading ? (
         <>Loading</>
       ) : (
-        <>
+        <div className="space-y-3">
+          <p className="text-lg">Results found: {refinedData.totalItems}</p>
+
           <ListDisplay data={refinedData.items} view={view!} />
 
           <Pagination currentPage={numberPage} totalPages={totalPages} nextAction={() => pageHandler('next')} prevAction={() => pageHandler('prev')} />
-        </>
+        </div>
       )}
     </section>
   );
