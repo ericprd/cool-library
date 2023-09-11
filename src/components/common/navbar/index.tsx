@@ -50,7 +50,7 @@ export function Navbar() {
         <span className="hidden md:inline-block">Home</span>
       </ButtonIcon>
 
-      <ButtonIcon icon={Bookmark} onClick={() => router.push('/')}>
+      <ButtonIcon icon={Bookmark} onClick={() => router.push('/bookmark')}>
         <span className="hidden md:inline-block">Bookmark</span>
       </ButtonIcon>
     </nav>

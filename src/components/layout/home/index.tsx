@@ -41,6 +41,18 @@ export default function HomeDisplay() {
 
     return { items: [], totalItems: 0 };
   }, [data]);
+
+  if (loading) {
+    return (
+      <p>Loading...</p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p>Something went wrong</p>
+    );
+  }
   
   return (
     <div className={styles.container}>
