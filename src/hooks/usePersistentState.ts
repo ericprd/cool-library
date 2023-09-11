@@ -27,7 +27,9 @@ import { useEffect, useState } from 'react';
 // }
 
 export function usePersistentState<T>(init: T, key: string) {
-    const storedValue = localStorage.getItem(key);
+    const storedValue = (() => {
+        if (typeof window !== 'undefined') return localStorage.getItem(key);
+    })();
     const initial = storedValue ? JSON.parse(storedValue) : init;
 
     const [state, setPersistentValue] = useState<T>(initial);

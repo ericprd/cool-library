@@ -1,0 +1,7 @@
+.layout_container {
+  @apply p-2 space-y-4;
+}
+
+.layout_container_grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4;
+}
