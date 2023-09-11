@@ -29,10 +29,10 @@ export function Navbar() {
     <nav className={style.navbar_container}>
       {router.asPath.includes('details') ? (
         <button type="button" className="flex gap-1 items-center p-2 rounded-md" onClick={() => router.back()}>
-            <span>
-                <ArrowLeft size={24} />
-            </span>
-            <span className="hidden md:inline-block">Back</span>
+          <span>
+            <ArrowLeft size={24} />
+          </span>
+          <span className="hidden md:inline-block">Back</span>
         </button>
       ) : null}
 
@@ -42,8 +42,6 @@ export function Navbar() {
           name="search_params"
         />
       </form>
-
-
 
       <ButtonIcon icon={Home} onClick={() => {
         router.push('/');

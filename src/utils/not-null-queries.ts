@@ -1,12 +1,12 @@
 export function notNullQueries(args: string[]): boolean {
-    let status = true;
+  let status = true;
 
-    for (const key in args) {
-        if (!args[key]) {
-            status = false;
-            break;
-        }
+  for (const key in args) {
+    if (!args[key]) {
+      status = false;
+      break;
     }
+  }
     
-    return status;
+  return status;
 }

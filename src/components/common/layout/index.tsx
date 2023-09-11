@@ -34,10 +34,10 @@ export function Layout(props: LayoutProps) {
   };
 
   return (
-      <Provider value={providerValue}>
-          <Navbar />
-          <main className={style.main_container}>{children}</main>
-          <Footer />
-      </Provider>
+    <Provider value={providerValue}>
+      <Navbar />
+      <main className={style.main_container}>{children}</main>
+      <Footer />
+    </Provider>
   );
 }

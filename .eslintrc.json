@@ -7,8 +7,10 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "no-mixed-spaces-and-tabs": "error",
     "quotes": ["error", "single"],
-    "semi": "error",
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
     "eol-last": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",

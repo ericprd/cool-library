@@ -23,7 +23,7 @@ export default function HomeDisplay() {
 
   const refinedData: { items: CardProps[] | []; totalItems: number } = useMemo(() => {
     if (data?.items) {
-    const newData = data.items.map(elm => {
+      const newData = data.items.map(elm => {
         const { id, volumeInfo } = elm;
         const obj: CardProps = {
           id: id,
