@@ -1,11 +1,12 @@
 import { CardProps } from '@/src/components/common/card';
 import { ListDisplay } from '@/src/components/common/list-layout';
-import { ButtonIcon } from '@/src/components/common/navbar';
+import { VolumeInfoProps } from '@/src/components/layout/details';
 import { ViewProps } from '@/src/components/layout/result';
 import { usePersistentState } from '@/src/hooks/usePersistentState';
-import { VolumeInfoProps } from 'pages/details/[id]';
 import { useMemo } from 'react';
 import { Grid, List } from 'react-feather';
+import style from './Bookmark.module.scss';
+import { ButtonIcon } from '@/src/components/button/button-icon';
 
 export default function Bookmarked() {
   const { state: bookmarkedList } = usePersistentState<VolumeInfoProps[]>([], 'bookmark');
@@ -28,8 +29,8 @@ export default function Bookmarked() {
   }, [bookmarkedList]);
 
   return (
-    <section className="space-y-2 p-2">
-      <div className="flex justify-end items-center px-2 md:px-5">
+    <section className={style.bookmark_container}>
+      <div className={style.action_container}>
         <ButtonIcon icon={view === 'grid' ? Grid : List} onClick={() => setView(view === 'grid' ? 'list' : 'grid')}/>
       </div>
 

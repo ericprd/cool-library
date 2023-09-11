@@ -8,9 +8,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import { DataProps } from '../home';
 import { OptionProps, SelectComponent } from '../../select';
-import { ButtonIcon } from '../../common/navbar';
 import { Grid, List } from 'react-feather';
 import { usePersistentState } from '@/src/hooks/usePersistentState';
+import { ButtonIcon } from '../../button/button-icon';
 
 export type ViewProps = 'list' | 'grid';
 

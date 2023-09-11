@@ -1,0 +1,20 @@
+.details_container {
+  @apply space-y-2 p-2 pb-4;
+}
+
+.viewport_display {
+  @apply px-4 space-y-4 max-w-3xl mx-auto;
+}
+
+.title {
+  @apply text-xl font-bold text-center;
+}
+
+.publisher {
+  @apply text-center text-sm;
+}
+
+.image_container {
+  @apply relative w-full h-80 mx-auto;
+}
+

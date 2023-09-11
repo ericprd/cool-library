@@ -1,13 +1,13 @@
 'use client';
 
-import React, { ReactNode, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FormValuesProps, SearchInput } from '../../search-input';
 import style from './Navbar.module.scss';
 import { useForm } from 'react-hook-form';
 import { GlobalContext, GlobalContextProps } from '../layout';
 import { useRouter } from 'next/router';
 import { ArrowLeft, Bookmark, Home } from 'react-feather';
-import { Icon } from 'react-feather';
+import { ButtonIcon } from '../../button/button-icon';
 
 export function Navbar() {
   const { searchBy } = useContext(GlobalContext) as GlobalContextProps;
@@ -28,11 +28,11 @@ export function Navbar() {
   return (
     <nav className={style.navbar_container}>
       {router.asPath.includes('details') ? (
-        <button type="button" className="flex gap-1 items-center p-2 rounded-md" onClick={() => router.back()}>
+        <button type="button" className={style.btn_back} onClick={() => router.back()}>
           <span>
             <ArrowLeft size={24} />
           </span>
-          <span className="hidden md:inline-block">Back</span>
+          <span className="label">Back</span>
         </button>
       ) : null}
 
@@ -47,23 +47,13 @@ export function Navbar() {
         router.push('/');
         reset();
       }}>
-        <span className="hidden md:inline-block">Home</span>
+        <span className={style.btn_nav_label}>Home</span>
       </ButtonIcon>
 
       <ButtonIcon icon={Bookmark} onClick={() => router.push('/bookmark')}>
-        <span className="hidden md:inline-block">Bookmark</span>
+        <span className={style.btn_nav_label}>Bookmark</span>
       </ButtonIcon>
     </nav>
-  );
-}
-
-export function ButtonIcon({ icon, onClick, children } : {icon: Icon; onClick: () => void; children?: ReactNode}) {
-  const IconComp = icon;
-  return (
-    <button className="flex items-center gap-2" onClick={onClick}>
-      <IconComp />
-      {children}
-    </button>
   );
 }
 
