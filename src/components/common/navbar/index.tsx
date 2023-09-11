@@ -50,7 +50,10 @@ export function Navbar() {
         <span className={style.btn_nav_label}>Home</span>
       </ButtonIcon>
 
-      <ButtonIcon icon={Bookmark} onClick={() => router.push('/bookmark')}>
+      <ButtonIcon icon={Bookmark} onClick={() => {
+        router.push('/bookmark');
+        reset();
+      }}>
         <span className={style.btn_nav_label}>Bookmark</span>
       </ButtonIcon>
     </nav>
