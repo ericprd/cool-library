@@ -15,13 +15,13 @@ export function SelectComponent(props: SelectProps) {
   const { options, value, onChange } = props;
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="max-w-[6rem] border-none focus:outline-none focus:ring-0 focus:border-none focus:ring-offset-0">
+      <SelectTrigger className="max-w-[9rem] border-none focus:outline-none focus:ring-0 focus:border-none focus:ring-offset-0">
         <SelectValue placeholder={value} />
       </SelectTrigger>
 
       <SelectContent>
         {options.map(option => (
-          <SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>
+          <SelectItem className="text-lg" key={option.value} value={option.value}>{option.label}</SelectItem>
         ))}
       </SelectContent>
     </Select>
